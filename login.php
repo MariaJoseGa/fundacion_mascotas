@@ -58,7 +58,7 @@ else{
      <div class="row justify-content-center h-100 py-4">
          <div class="card col-sm-6 col-md-6 col-lg-6 shadow-lg p-3 mb-5 bg-white rounded">
             <article class="card-body">
-                <h4 class="card-title text-center">Login al sistema</h4>
+                <h4 class="card-title text-center">Login Adopet</h4>
                 <hr>
                 <p class="text-success text-center">Digita tus credenciales</p>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
