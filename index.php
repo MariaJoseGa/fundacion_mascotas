@@ -1,3 +1,7 @@
+<?php
+include 'includes/conecta.php';
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
