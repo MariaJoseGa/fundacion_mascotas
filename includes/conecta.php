@@ -2,7 +2,7 @@
 
 $servidor = "localhost";
 $usuario = "root";
-$password = "122";
+$password = "";
 $bd = "fundacion_mascotas";
 $conecta = mysqli_connect($servidor, $usuario, $password, $bd);
 if($conecta->connect_error){
