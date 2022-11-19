@@ -28,7 +28,7 @@ include 'includes/conecta.php';
 			<!--Inicia barra navegación -->
 		<nav class="navbar navbar-expand-lg bg-main sticky-top" id="menu">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="index.php">
     	<img src="img/logo.png" width="150" height="80">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#inicio" aria-controls="inicio" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@ include 'includes/conecta.php';
             Opciones
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Inicio Sesión</a></li>
+            <li><a class="dropdown-item" href="login.php">Inicio Sesión</a></li>
             <li><a class="dropdown-item" href="#">Configuración</a></li>
             <li><a class="dropdown-item" href="#">Acerca de</a></li>
           </ul>
