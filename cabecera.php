@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="js/jquery-3.6.1.min.js"></script>
 <html>
 <nav class="navbar navbar-expand-lg bg-main sticky-top" id="menu">
   <div class="container-fluid">

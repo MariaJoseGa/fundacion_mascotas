@@ -1,14 +1,7 @@
 .bg-centro{
-  background-color: rgb(23, 32, 42);
-  color: #fff;
+  background:linear-gradient(#75e6f8,#ddbcf0, #b7f0fa);;
+  color:linear-gradient(#75e6f8,#ddbcf0, #b7f0fa);
 }
 .bg-main{
-  background-color: rgba(148, 187, 233, 100);
-}
-
-input, textarea, select, button {
-  width : 150px;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+ background:linear-gradient(#75e6f8,#ddbcf0, #b7f0fa);;
 }

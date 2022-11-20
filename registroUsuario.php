@@ -57,13 +57,9 @@ if (isset($_POST['registrar'])) {
  ?>
 <!DOCTYPE html>
 <div id="pag">
-
-  <div id="cabecera">
-    <!--Inicia barra navegación -->
+<!--Inicia barra navegación -->
       <?php include "cabecera.php"; ?>
       <!-- Termina barra navegación -->
-  </div>
-
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -78,7 +74,7 @@ if (isset($_POST['registrar'])) {
   </head>
   <body>
   <div class="container py-4">
-       <h3>Nuestra Comunidad</h3>
+       <h3 id="titulo" style="color: black; margin: 0.5rem;">Nuestra Comunidad</h3>
        <div class="row text-center col-sm-12 col-md-12 col-lg-12 py-4">
          <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -94,8 +90,11 @@ if (isset($_POST['registrar'])) {
        </div>
        <div class="container">
            <div class="col-sm-12 col-md-12 col-lg-12">
-              <h4 class="text-center">Registro de Usuario</h4>
+              <h4 id="titulo" class="text-center">Registro de Usuario</h4>
               <form style="background-image: img/pet.jpg; background-size: cover; background-position: top center; min-height: 700px;" class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <p>
+                      
+                    </p>
                     <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Correo</label>        
                    <input id="texto" type="email" name="correo_usuario" placeholder="example@email.com" class="form-control" required>
@@ -160,7 +159,7 @@ if (isset($_POST['registrar'])) {
                      <?php } ?>
                    </select>
                   </div>
-                   <input id="button" align=center; type="submit" name="registrar" value="Registrar" class="btn btn-outline-info">
+                   <input id="button" align=center; type="submit" name="registrar" value="Registrar" class="btn btn-primary">
               </form>
            </div>
            <?php echo $mensaje; ?>
