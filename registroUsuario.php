@@ -78,13 +78,13 @@ if (isset($_POST['registrar'])) {
        <div class="row text-center col-sm-12 col-md-12 col-lg-12 py-4">
          <ul class="nav nav-tabs">
             <li class="nav-item">
-               <a class="nav-link" href="tabla.php">Editar datos</a>
+               <a class="nav-link" href="tablaUsuarios.php">Tabla de registros</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link active" href="registro.php">Registrar datos</a>
+               <a class="nav-link active" href="registroUsuario.php">Registrar datos</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="busqueda.php">Buscar datos</a>
+               <a class="nav-link" href="busquedaUsuarios.php">Búsqueda de registros</a>
            </li>
           </ul>
        </div>
