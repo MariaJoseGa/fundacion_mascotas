@@ -1,0 +1,48 @@
+.form{
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+.form input{
+  width: 90%;
+  height: 30px;
+  margin: .5rem
+}
+
+.form select{
+  width: 90%;
+  height: 40px;
+  margin: .5rem
+}
+
+.form-container{
+  max-width:700px;
+  margin: 0 auto;
+}
+
+.form-element {
+  display: block;
+  width: 80%;
+  margin: 1rem auto;
+  
+}
+
+#button{
+	width: 200px;
+	height: 50px;
+}
+
+#chx{
+	width: 20px;
+	height: 20px;
+}
+
+#pag{
+
+  background:linear-gradient(30deg, #ffdaea,#e6ffec, #a5d0ff);
+}

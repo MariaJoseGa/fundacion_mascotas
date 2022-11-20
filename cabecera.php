@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html>
 <nav class="navbar navbar-expand-lg bg-main sticky-top" id="menu">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">
-    	<img src="img/logo.png" width="150" height="80">
+      <img src="img/logo.png" width="150" height="80">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#inicio" aria-controls="inicio" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,32 +34,35 @@
       </ul>
     </div>
     <ul class="navbar-nav ml-auto nav-flex-icons">
-      	<li class="nav-item">
-      		<a class="nav-link" href="#">
-      			<i class="icon-facebook-rect"></i>
-      		</a>
-      	</li>
-      	<li class="nav-item">
-      		<a class="nav-link" href="#">
-      			<i class="icon-twitter-bird"></i>
-      		</a>
-      	</li>
-      	<li class="nav-item">
-      		<a class="nav-link" href="#">
-      			<i class="icon-youtube"></i>
-      		</a>
-      	</li>
-      	<li class="nav-item dropdown">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="icon-facebook-rect"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="icon-twitter-bird"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="icon-youtube"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="opciones" role="button" data-bs-toggle="dropdown">
             Opciones
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="login.php">Inicio Sesión</a></li>
             <li><a class="dropdown-item" href="#">Configuración</a></li>
-            <li><a class="dropdown-item" href="#">Acerca de</a></li>zS
+            <li><a class="dropdown-item" href="#">Acerca de</a></li>
           </ul>
         </li>
       </ul>
   </div>
 </nav>
-</div>
+</html>
+
+
+

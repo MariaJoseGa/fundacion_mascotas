@@ -1,6 +1,5 @@
 <?php
 include 'includes/conecta.php';
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +25,7 @@ include 'includes/conecta.php';
 		<!-- Inicia el contenido de la web -->
 		<div id="contenido">
 			<!--Inicia barra navegación -->
-			<<?php include "cabecera.php"; ?>
+			<?php include "cabecera.php"; ?>
 			<!-- Termina barra navegación -->
 			<p class="py-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
