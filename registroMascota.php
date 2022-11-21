@@ -15,34 +15,26 @@ $guardarR = $conecta->query($raza);
 // validar que exita un boton enviar
 if (isset($_POST['registrar'])) {
   $mensaje = "";
-  $id_usuario = "";
-  $tipo_usuario = 1;
-  $correo_usuario = $conecta->real_escape_string($_POST['correo_usuario']);
-  $cedula_usuario = $conecta->real_escape_string($_POST['cedula_usuario']);
-  $nombre_usuario = $conecta->real_escape_string($_POST['nombre_usuario']);
-  $apellido_usuario = $conecta->real_escape_string($_POST['apellido_usuario']);
-  $telefono_usuario = $conecta->real_escape_string($_POST['telefono_usuario']);
-  $direccion_usuario = $conecta->real_escape_string($_POST['direccion_usuario']);
-  $id_dpto = $conecta->real_escape_string($_POST['id_dpto']);
-  $id_ciudad = $conecta->real_escape_string($_POST['id_ciudad']);
-  $id_veterinaria = $conecta->real_escape_string($_POST['id_veterinaria']);
-  // consulta para verificar que el registro no exista
-  $validar = "SELECT * FROM usuario WHERE correo_usuario = '$correo_usuario' || cedula_usuario = '$cedula_usuario'";
-  $validando = $conecta->query($validar);
-  if($validando->num_rows > 0){
-    $mensaje.="<h5 class='text-danger text-center'> El usuario y/o Email ya se encuantran registrados</h5>";
-  } else {
+  $id_mascota = "";
+  $id_usuario = $conecta->real_escape_string($_POST['id_usuario']);
+  $id_tipo_mascota = $conecta->real_escape_string($_POST['id_tipo_mascota']);
+  $id_raza = $conecta->real_escape_string($_POST['id_raza']);
+  $color = $conecta->real_escape_string($_POST['color']);
+  $tamanio = $conecta->real_escape_string($_POST['tamanio']);
+  $peso = $conecta->real_escape_string($_POST['peso']);
+  $descripcion = $conecta->real_escape_string($_POST['descripcion']);
+  $fecha_ingreso = $conecta->real_escape_string($_POST['fecha_ingreso']);
   // consulta para insertar los datos
-    if($id_veterinaria == "")
+    if($id_usuario == "")
     {
-        $insertar = "INSERT INTO usuario (id_usuario, tipo_usuario, correo_usuario, cedula_usuario, nombre_usuario, apellido_usuario, telefono_usuario,
-  direccion_usuario, id_ciudad, id_veterinaria)VALUES('$id_usuario','$tipo_usuario','$correo_usuario','$cedula_usuario','$nombre_usuario',
-  '$apellido_usuario','$telefono_usuario','$direccion_usuario','$id_ciudad',null)";
+        $insertar = "INSERT INTO mascota (id_mascota, id_usuario, id_tipo_mascota, id_raza, color, tamanio, peso,
+  descripcion, fecha_ingreso)VALUES('$id_mascota',null,'$id_tipo_mascota','$id_raza','$color',
+  '$tamanio','$peso','$descripcion','$fecha_ingreso')";
     }else
     {
-        $insertar = "INSERT INTO usuario (id_usuario, tipo_usuario, correo_usuario, cedula_usuario, nombre_usuario, apellido_usuario, telefono_usuario,
-  direccion_usuario, id_ciudad, id_veterinaria)VALUES('$id_usuario','$tipo_usuario','$correo_usuario','$cedula_usuario','$nombre_usuario',
-  '$apellido_usuario','$telefono_usuario','$direccion_usuario','$id_ciudad','$id_veterinaria')";
+        $insertar = "INSERT INTO mascota (id_mascota, id_usuario, id_tipo_mascota, id_raza, color, tamanio, peso,
+  descripcion, fecha_ingreso)VALUES('$id_mascota','$id_usuario','$id_tipo_mascota','$id_raza','$color',
+  '$tamanio','$peso','$descripcion','$fecha_ingreso')";
     }
   
   $guardando = $conecta->query($insertar);
@@ -51,7 +43,6 @@ if (isset($_POST['registrar'])) {
   }
   else{
       $mensaje.="<h5 class='text-danger text-center'> Tu registro no se realizo con exito</h5>";
-  }
   }
 }
  ?>
@@ -78,25 +69,25 @@ if (isset($_POST['registrar'])) {
        <div class="row text-center col-sm-12 col-md-12 col-lg-12 py-4">
          <ul class="nav nav-tabs">
             <li class="nav-item">
-               <a class="nav-link" href="tabla.php">Editar datos</a>
+               <a class="nav-link" href="tablaUsuarios.php">Tabla de registros</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link active" href="registro.php">Registrar datos</a>
+               <a class="nav-link active" href="registroUsuario.php">Registrar datos</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="busqueda.php">Buscar datos</a>
+               <a class="nav-link" href="busquedaUsuarios.php">Búsqueda de registros</a>
            </li>
           </ul>
        </div>
        <div class="container">
            <div class="col-sm-12 col-md-12 col-lg-12">
               <h4 id="titulo" class="text-center">Registro de Mascota</h4>
-              <form background-size: cover; background-position: top center; min-height: 700px;" class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+              <form style="background-size: cover; background-position: top center; min-height: 700px;" class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <p>
                       
                     </p>
                     <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">¿Quién trajo la mascota?</label>
+                    <label for="staticEmail" class="text">¿Quién trajo la mascota?</label>
                    <select id="texto" class="form-control" name="id_usuario">
                      <option value="">Nombre del usuario</option>
                      <?php while($row = $guardarU->fetch_assoc()){?>
@@ -105,7 +96,7 @@ if (isset($_POST['registrar'])) {
                    </select>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Tipo de Mascota</label>
+                    <label for="staticEmail" class="text">Tipo de Mascota</label>
                    <select id="texto" class="form-control" name="id_tipo_mascota">
                      <option value="">Tipo</option>
                      <?php while($row = $guardarT->fetch_assoc()){?>
@@ -139,8 +130,8 @@ if (isset($_POST['registrar'])) {
                    <input id="texto" type="text" name="descripcion" placeholder="Descripción del estado de la mascota" class="form-control" required>
                    </div>
                    <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Fecha de ingreso</label>
-                   <input id="texto" type="date" name="descripcion" placeholder="Descripción del estado de la mascota" class="form-control" required>
+                    <label for="staticEmail" class="text">Fecha de ingreso</label>
+                   <input id="texto" type="date" name="fecha_ingreso" class="form-control" required>
                    </div>
                    <input id="button" align=center; type="submit" name="registrar" value="Registrar" class="btn btn-primary">
               </form>

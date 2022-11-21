@@ -83,15 +83,12 @@ if (isset($_POST['registrar'])) {
             <li class="nav-item">
                <a class="nav-link active" href="registroUsuario.php">Registrar datos</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="busquedaUsuarios.php">Búsqueda de registros</a>
-           </li>
           </ul>
        </div>
        <div class="container">
            <div class="col-sm-12 col-md-12 col-lg-12">
               <h4 id="titulo" class="text-center">Registro de Usuario</h4>
-              <form style="background-image: img/pet.jpg; background-size: cover; background-position: top center; min-height: 700px;" class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+              <form style="background-size: cover; background-position: top center; min-height: 700px;" class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <p>
                       
                     </p>
