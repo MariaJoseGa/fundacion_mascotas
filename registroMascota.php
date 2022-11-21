@@ -10,8 +10,8 @@ $tipoM = "SELECT * FROM tipo_mascota";
 $guardarT = $conecta->query($tipoM);
 // validar que exita un boton enviar
 // consulta para extraer datos de veterinaria
-$id_veterinaria = "SELECT * FROM veterinaria";
-$guardarV = $conecta->query($id_veterinaria);
+$raza = "SELECT * FROM raza";
+$guardarR = $conecta->query($raza);
 // validar que exita un boton enviar
 if (isset($_POST['registrar'])) {
   $mensaje = "";
@@ -106,77 +106,42 @@ if (isset($_POST['registrar'])) {
                   </div>
                   <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Tipo de Mascota</label>
-                   <select id="texto" class="form-control" name="id_usuario">
+                   <select id="texto" class="form-control" name="id_tipo_mascota">
                      <option value="">Tipo</option>
                      <?php while($row = $guardarT->fetch_assoc()){?>
                      <option value="<?php echo $row['id_tipo_mascota']; ?>"><?php echo $row['tipo_mascota']; ?></option>
                      <?php } ?>
                    </select>
                   </div>
-                    <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Correo</label>        
-                   <input id="texto" type="email" name="correo_usuario" placeholder="example@email.com" class="form-control" required>
-                   </div>
-                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
-                   <input id="texto" type="text" name="nombre_usuario" placeholder="Tu nombre" class="form-control" required>
-                   </div>
-                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Apellido</label>
-                   <input id="texto" type="text" name="apellido_usuario" placeholder="Tu apellido" class="form-control" required>
-                   </div>
-                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Cédula</label>
-                   <input id="texto" type="text" name="cedula_usuario" placeholder="Tu número de cédula" class="form-control" required>
-                   </div>
-                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Teléfono</label>
-                   <input id="texto" type="tel" name="telefono_usuario" placeholder="Ex: 3123456789" class="form-control" required>
-                   </div>
-                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Dirección</label>
-                   <input id="texto" type="text" name="direccion_usuario" placeholder="Ex: Cra 25 # 12 - 33" class="form-control" required>
-                   </div>
-                   <div class="form-group row">
-                    <div class="col">
-                   <select class="form-control" name="id_dpto">
-                     <option value="">Departamento</option>
-                     <?php while($row = $guardarD->fetch_assoc()){?>
-                     <option value="<?php echo $row['id_dpto']; ?>"><?php echo $row['nombre_dpto']; ?></option>
-                     <?php } ?>
-                   </select>
-                   </div>
-                   <div class="col">
-                   <select class="form-control" name="id_ciudad">
-                     <option value="">Ciudad</option>
-                     <?php while($row = $guardarC->fetch_assoc()){?>
-                     <option value="<?php echo $row['id_ciudad']; ?>"><?php echo $row['nombre_ciudad']; ?></option>
-                     <?php } ?>
-                   </select>
-                   </div>
-                   </div>
-                   <div class="form-group">
-                    <label for="staticEmail" class="col-form-label">¿Tienes una veterinaria?</label> 
-                   <div class="form-group row">
-                     <div class="col">
-                      <label>Si</label>
-                     <input id="chx" type="checkbox" name="vet" value="si">
-                   </div>
-                     <div class="col">
-                      <label>No</label>
-                     <input id="chx" type="checkbox" name="vet" value="no">
-                   </div>
-                   </div>
-                   </div>
-                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Veterinaria</label>
-                   <select id="texto" class="form-control" name="id_veterinaria">
-                     <option value="">Nombre de la Veterinaria</option>
-                     <?php while($row = $guardarV->fetch_assoc()){?>
-                     <option id="vet_hab" value="<?php echo $row['id_veterinaria']; ?>"><?php echo $row['nombre_vet']; ?></option>
+                  <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Raza</label>
+                   <select id="texto" class="form-control" name="id_raza">
+                     <option value="">Raza</option>
+                     <?php while($row = $guardarR->fetch_assoc()){?>
+                     <option value="<?php echo $row['id_raza']; ?>"><?php echo $row['tipo_raza']; ?></option>
                      <?php } ?>
                    </select>
                   </div>
+                    <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Color</label>        
+                   <input id="texto" type="text" name="color" placeholder="Describe el color de la mascota" class="form-control" required>
+                   </div>
+                   <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Tamaño</label>
+                   <input id="texto" type="text" name="tamanio" placeholder="Ex: 15cm x 25 cm aprox" class="form-control" required>
+                   </div>
+                   <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Peso</label>
+                   <input id="texto" type="text" name="peso" placeholder="Peso en Kg" class="form-control" required>
+                   </div>
+                   <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Descripción</label>
+                   <input id="texto" type="text" name="descripcion" placeholder="Descripción del estado de la mascota" class="form-control" required>
+                   </div>
+                   <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Fecha de ingreso</label>
+                   <input id="texto" type="date" name="descripcion" placeholder="Descripción del estado de la mascota" class="form-control" required>
+                   </div>
                    <input id="button" align=center; type="submit" name="registrar" value="Registrar" class="btn btn-primary">
               </form>
            </div>
