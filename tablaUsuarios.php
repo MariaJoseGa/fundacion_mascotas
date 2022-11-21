@@ -2,7 +2,7 @@
 <?php
 include 'includes/conecta.php';
 // consulta
-$consulta = "SELECT * FROM Alumnos";
+$consulta = "SELECT * FROM usuario";
 $guardar = $conecta->query($consulta);
  ?>
 <!DOCTYPE html>
@@ -42,23 +42,31 @@ $guardar = $conecta->query($consulta);
                <div class="table-responsive table-hover" id="TablaConsulta">
                   <table class="table">
                       <thead class="text-muted">
-                           <th class="text-center">Nombre</th>
-                           <th class="text-center">Apellido Paterno</th>
-                           <th class="text-center">Apellido Materno</th>
-                           <th class="text-center">Fecha Nacimiento</th>
-                           <th class="text-center">Genero</th>
-                           <th class="text-center">Telefono</th>
-                           <th class="text-center">Opciones</th>
+                      	   <th class="text-center">id_usuario</th>
+                      	   <th class="text-center">tipo_usuario</th>
+                           <th class="text-center">nombre_usuario</th>
+                           <th class="text-center">apellido_usuario</th>
+                           <th class="text-center">telefono_usuario</th>
+                           <th class="text-center">direccion_usuario</th>
+                           <th class="text-center">cedula_usuario</th>
+                           <th class="text-center">correo_usuario</th>
+                           <th class="text-center">id_ciudad</th>
+                           <th class="text-center">id_veterinaria</th>
+                           
                       </thead>
                       <tbody>
                          <?php while($row = $guardar->fetch_assoc()){?>
                          <tr>
-                            <td><?php echo $row['Nombre']; ?></td>
-                            <td><?php echo $row['ApellidoP']; ?></td>
-                            <td><?php echo $row['ApellidoM']; ?></td>
-                            <td><?php echo $row['F_Nacimiento']; ?></td>
-                            <td><?php echo $row['Id_Genero']; ?></td>
-                            <td><?php echo $row['Telefono']; ?></td>
+                            <td><?php echo $row['id_usuario']; ?></td>
+                            <td><?php echo $row['tipo_usuario']; ?></td>
+                            <td><?php echo $row['nombre_usuario']; ?></td>
+                            <td><?php echo $row['apellido_usuario']; ?></td>
+                            <td><?php echo $row['telefono_usuario']; ?></td>
+                            <td><?php echo $row['direccion_usuario']; ?></td>
+                             <td><?php echo $row['cedula_usuario']; ?></td>
+                              <td><?php echo $row['correo_usuario']; ?></td>
+                               <td><?php echo $row['id_ciudad']; ?></td>
+                                <td><?php echo $row['id_veterinaria']; ?></td>
                             <td><a href="moodificar.php?Id_Alumnos=<?php echo $row['Id_Alumnos'];?>">Editar</a> <a href="eliminar.php?Id_Alumnos=<?php echo $row['Id_Alumnos'];?>">-Borrar</a></td>
                          </tr>
                        <?php } ?>
