@@ -10,8 +10,6 @@
   }
   $consulta = "SELECT * FROM usuario $where";
   $resultado = $conecta->query($consulta);
- ?>
-<?php
 include 'includes/conecta.php';
 // consulta
 $consulta = "SELECT * FROM usuario";
@@ -21,7 +19,7 @@ $guardar = $conecta->query($consulta);
 <!--Inicia barra navegación -->
       <?php include "cabecera.php"; ?>
       <!-- Termina barra navegación -->
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr">tr
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -39,18 +37,16 @@ $guardar = $conecta->query($consulta);
        <div class="row text-center col-sm-12 col-md-12 col-lg-12 py-4">
          <ul class="nav nav-tabs">
             <li class="nav-item">
-               <a class="nav-link" href="tablaUsuarios.php">Tabla de registros</a>
+               <a id = "data" class="nav-link" href="tablaUsuarios.php" >Tabla de registros <i class="icon-edit"></i> </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link active" href="registroUsuario.php">Registrar datos</a>
+               <a id = "data" class="nav-link active" href="registroUsuario.php">Registrar datos <i class="icon-user-add"></i> </a>
             </li>
           </ul>
        </div>
        <form id="searchL" class="input-group rounded" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                       <input style="background:white; border-width: 3px; border-color: #dda1fe;" type="text" name="bubtn btn-primaryscar" class="form-control rounded" placeholder="Digite el número de cédula"><br>
-                       <span style="background-color: transparent;" class="input-group-text border-0" id="search-addon">
-                        <input style="background:linear-gradient(#ddbcf0, #b7f0fa); color: gray; border-color: lightcyan;" class="btn btn-primary" id="search-addon" type="submit" name="buscando" value="Buscar"></input>
-                        </span>
+                       <input style="background:white; border-width: 3px; border-color: #dda1fe;" type="text" name="buscar" class="form-control rounded" placeholder="Buscar por número de cédula"><br>
+                       <input style="background:linear-gradient(#ddbcf0, #b7f0fa); color: gray; border-color: lightcyan;" type="submit" name="buscando" value="Buscar" class="btn-block btn-sm btn-success">
                    </form>
        <div class="container">
         <?php if($resultado->num_rows > 0) { ?>

@@ -65,16 +65,16 @@ if(isset($_POST['modificar'])){
        <div class="row text-center col-sm-12 col-md-12 col-lg-12 py-4">
          <ul class="nav nav-tabs">
             <li class="nav-item">
-               <a class="nav-link" href="tablaMascotas.php">Tabla de registros</a>
+               <a id = "data" class="nav-link" href="tablaMascotas.php" >Tabla de registros <i class="icon-edit"></i> </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link active" href="registroUsuario.php">Registrar datos</a>
+               <a id = "data" class="nav-link active" href="registroMascota.php">Registrar datos <i class="icon-user-add"></i> </a>
             </li>
           </ul>
        </div>
        <div class="container">
            <div class="col-sm-12 col-md-12 col-lg-12">
-              <h4 id="titulo" class="text-center">Registro de Mascota</h4>
+              <h4 id="titulo" class="text-center">Editar Registro</h4>
               <form style="background-size: cover; background-position: top center; min-height: 700px;" class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <p>
                       
@@ -91,7 +91,7 @@ if(isset($_POST['modificar'])){
                   <div class="form-group row">
                     <label for="staticEmail" class="text">Tipo de Mascota</label>
                    <select id="texto" class="form-control" name="id_tipo_mascota">
-                     <option value="">Tipo</option>
+                     <option value="<?php echo $dato['id_tipo_mascota']; ?>">Tipo</option>
                      <?php while($row = $guardarT->fetch_assoc()){?>
                      <option value="<?php echo $row['id_tipo_mascota']; ?>"><?php echo $row['tipo_mascota']; ?></option>
                      <?php } ?>
@@ -100,7 +100,7 @@ if(isset($_POST['modificar'])){
                   <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Raza</label>
                    <select id="texto" class="form-control" name="id_raza">
-                     <option value="">Raza</option>
+                     <option value="<?php echo $dato['id_raza']; ?>">Raza</option>
                      <?php while($row = $guardarR->fetch_assoc()){?>
                      <option value="<?php echo $row['id_raza']; ?>"><?php echo $row['tipo_raza']; ?></option>
                      <?php } ?>
@@ -108,33 +108,28 @@ if(isset($_POST['modificar'])){
                   </div>
                     <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Color</label>        
-                   <input id="texto" type="text" name="color" placeholder="Describe el color de la mascota" class="form-control" required>
+                   <input id="texto" type="text" name="color" placeholder="Describe el color de la mascota" class="form-control" value="<?php echo $dato['color']; ?>" required>
                    </div>
                    <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Tamaño</label>
-                   <input id="texto" type="text" name="tamanio" placeholder="Ex: 15cm x 25 cm aprox" class="form-control" required>
+                   <input id="texto" type="text" name="tamanio" placeholder="Ex: 15cm x 25 cm aprox" class="form-control" value="<?php echo $dato['tamanio']; ?>" required>
                    </div>
                    <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Peso</label>
-                   <input id="texto" type="text" name="peso" placeholder="Peso en Kg" class="form-control" required>
+                   <input id="texto" type="text" name="peso" placeholder="Peso en Kg" class="form-control" value="<?php echo $dato['peso']; ?>" required>
                    </div>
                    <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Descripción</label>
-                   <input id="texto" type="text" name="descripcion" placeholder="Descripción del estado de la mascota" class="form-control" required>
+                   <input style="height: 100px; margin: .5rem;" id="texto" type="text" name="descripcion" placeholder="Descripción del estado de la mascota" class="form-control" value="<?php echo $dato['descripcion']; ?>" required>
                    </div>
                    <div class="form-group row">
                     <label for="staticEmail" class="text">Fecha de ingreso</label>
-                   <input id="texto" type="date" name="fecha_ingreso" class="form-control" required>
+                   <input id="texto" type="date" name="fecha_ingreso" class="form-control" value="<?php echo $dato['fecha_ingreso']; ?>" required>
                    </div>
-                   <input id="button" align=center; type="submit" name="registrar" value="Registrar" class="btn btn-primary">
+                   <input type="submit" name="modificar" class="btn btn-success btn-sm btn-block" value="Modificar">
               </form>
            </div>
-           <?php echo $mensaje; ?>
       </div>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/preloader.js"></script>
-      <script src="js/main.js"></script>
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       </body>
     </html>
     </div>

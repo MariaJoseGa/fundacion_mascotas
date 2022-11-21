@@ -60,10 +60,10 @@ if(isset($_POST['modificar'])){
        <div class="row text-center col-sm-12 col-md-12 col-lg-12 py-4">
          <ul class="nav nav-tabs">
             <li class="nav-item">
-               <a class="nav-link" href="tablaUsuarios.php">Tabla de registros</a>
+               <a id = "data" class="nav-link" href="tablaUsuarios.php" >Tabla de registros <i class="icon-edit"></i> </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link active" href="registroUsuario.php">Registrar datos</a>
+               <a id = "data" class="nav-link active" href="registroUsuario.php">Registrar datos <i class="icon-user-add"></i> </a>
             </li>
           </ul>
        </div>
@@ -132,3 +132,7 @@ if(isset($_POST['modificar'])){
                    <input type="submit" name="modificar" class="btn btn-success btn-sm btn-block" value="Modificar">
               </form>
        </div>
+
+
+
+       <?php while($row = $guardarT->fetch_assoc()){ echo $row['id_tipo_mascota']; echo $row['tipo_mascota']; } ?>

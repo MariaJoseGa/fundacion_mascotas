@@ -69,10 +69,10 @@ if (isset($_POST['registrar'])) {
        <div class="row text-center col-sm-12 col-md-12 col-lg-12 py-4">
          <ul class="nav nav-tabs">
             <li class="nav-item">
-               <a class="nav-link" href="tablaMascotas.php">Tabla de registros</a>
+               <a id = "data" class="nav-link" href="tablaMascotas.php" >Tabla de registros <i class="icon-edit"></i> </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link active" href="registroUsuario.php">Registrar datos</a>
+               <a id = "data" class="nav-link active" href="registroMascota.php">Registrar datos <i class="icon-user-add"></i> </a>
             </li>
           </ul>
        </div>
@@ -124,7 +124,7 @@ if (isset($_POST['registrar'])) {
                    </div>
                    <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Descripción</label>
-                   <input id="texto" type="text" name="descripcion" placeholder="Descripción del estado de la mascota" class="form-control" required>
+                   <textarea style="height: 100px; margin: .5rem;" id="texto" type="text" name="descripcion" placeholder="Descripción del estado de la mascota" class="form-control" required></textarea>
                    </div>
                    <div class="form-group row">
                     <label for="staticEmail" class="text">Fecha de ingreso</label>

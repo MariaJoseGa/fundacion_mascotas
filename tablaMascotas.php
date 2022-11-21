@@ -1,5 +1,4 @@
 <?php
-include 'includes/conecta.php';
   error_reporting(0);
   include 'includes/conecta.php';
   $where = "";
@@ -36,22 +35,20 @@ $guardar = $conecta->query($consulta);
   </head>
   <body>
   <div class="container py-4">
-       <h3 id="titulo" style="color: black; margin: 0.5rem;">Registros de Usuarios</h3>
+       <h3 id="titulo" style="color: black; margin: 0.5rem;">Registros de Mascotas</h3>
        <div class="row text-center col-sm-12 col-md-12 col-lg-12 py-4">
          <ul class="nav nav-tabs">
             <li class="nav-item">
-               <a class="nav-link" href="tablaUsuarios.php">Tabla de registros</a>
+               <a id = "data" class="nav-link" href="tablaMascotas.php" >Tabla de registros <i class="icon-edit"></i> </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link active" href="registroUsuario.php">Registrar datos</a>
+               <a id = "data" class="nav-link active" href="registroMascota.php">Registrar datos <i class="icon-user-add"></i> </a>
             </li>
           </ul>
        </div>
        <form id="searchL" class="input-group rounded" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                       <input style="background:white; border-width: 3px; border-color: #dda1fe;" type="text" name="bubtn btn-primaryscar" class="form-control rounded" placeholder="Digite el número de cédula"><br>
-                       <span style="background-color: transparent;" class="input-group-text border-0" id="search-addon">
-                        <input style="background:linear-gradient(#ddbcf0, #b7f0fa); color: gray; border-color: lightcyan;" class="btn btn-primary" id="search-addon" type="submit" name="buscando" value="Buscar"></input>
-                        </span>
+                       <input style="background:white; border-width: 3px; border-color: #dda1fe;" type="text" name="buscar" class="form-control rounded" placeholder="Busqueda por raza"><br>
+                       <input style="background:linear-gradient(#ddbcf0, #b7f0fa); color: gray; border-color: lightcyan;" type="submit" name="buscando" value="Buscar" class="btn-block btn-sm btn-success">
                    </form>
        <div class="container">
          <?php if($resultado->num_rows > 0) { ?>
@@ -84,7 +81,7 @@ $guardar = $conecta->query($consulta);
                               <td><?php echo $row['descripcion']; ?></td>
                                <td><?php echo $row['fecha_ingreso']; ?></td>
                             <td>
-                               <a style="color: #2798aa;" href="editarMascotas.php?id_usuario=<?php echo $row['id_mascota'];?>" class="icon-edit">Editar</a> 
+                               <a style="color: #2798aa;" href="editarMascotas.php?id_mascota=<?php echo $row['id_mascota'];?>" class="icon-edit">Editar</a> 
                                 <a style="color: red;" href="eliminarMascotas.php?id_mascota=<?php echo $row['id_mascota'];?>" class="icon-trash">Borrar</a>
                             </td>
                          </tr>
@@ -94,5 +91,7 @@ $guardar = $conecta->query($consulta);
                </div>
            </div>
          </form>
+        <?php } else {?>
+        
         <?php } ?>
        </div>
