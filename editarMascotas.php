@@ -1,52 +1,48 @@
 <?php
-error_reporting(0);
+session_start();
 include 'includes/conecta.php';
-// consulta para extraer datos de usuario
-$usuario = "SELECT * FROM usuario";
-$guardarU = $conecta->query($usuario);
-// validar que exita un boton enviar
-// consulta para extraer datos de tipo_mascota
+
+// consulta para extraer datos de ciudad
 $tipoM = "SELECT * FROM tipo_mascota";
 $guardarT = $conecta->query($tipoM);
 // validar que exita un boton enviar
-// consulta para extraer datos de veterinaria
+// consulta para extraer datos de ciudad
+$usuario = "SELECT * FROM usuario";
+$guardarU = $conecta->query($usuario);
+// validar que exita un boton enviar
+// consulta para extraer datos de ciudad
 $raza = "SELECT * FROM raza";
 $guardarR = $conecta->query($raza);
 // validar que exita un boton enviar
-if (isset($_POST['registrar'])) {
-  $mensaje = "";
-  $id_mascota = "";
-  $id_usuario = $conecta->real_escape_string($_POST['id_usuario']);
-  $id_tipo_mascota = $conecta->real_escape_string($_POST['id_tipo_mascota']);
-  $id_raza = $conecta->real_escape_string($_POST['id_raza']);
-  $color = $conecta->real_escape_string($_POST['color']);
-  $tamanio = $conecta->real_escape_string($_POST['tamanio']);
-  $peso = $conecta->real_escape_string($_POST['peso']);
-  $descripcion = $conecta->real_escape_string($_POST['descripcion']);
-  $fecha_ingreso = $conecta->real_escape_string($_POST['fecha_ingreso']);
-  // consulta para insertar los datos
-    if($id_usuario == "")
-    {
-        $insertar = "INSERT INTO mascota (id_mascota, id_usuario, id_tipo_mascota, id_raza, color, tamanio, peso,
-  descripcion, fecha_ingreso)VALUES('$id_mascota',null,'$id_tipo_mascota','$id_raza','$color',
-  '$tamanio','$peso','$descripcion','$fecha_ingreso')";
-    }else
-    {
-        $insertar = "INSERT INTO mascota (id_mascota, id_usuario, id_tipo_mascota, id_raza, color, tamanio, peso,
-  descripcion, fecha_ingreso)VALUES('$id_mascota','$id_usuario','$id_tipo_mascota','$id_raza','$color',
-  '$tamanio','$peso','$descripcion','$fecha_ingreso')";
-    }
-  
-  $guardando = $conecta->query($insertar);
-  if ($guardando > 0) {
-    $mensaje.="<h5 class='text-success text-center'> Tu registro se realizo con exito</h5>";
-  }
-  else{
-      $mensaje.="<h5 class='text-danger text-center'> Tu registro no se realizo con exito</h5>";
-  }
+// generar la consulta para extraer lo datos
+$id_mascota = $_GET['id_mascota'];
+$m = "SELECT * FROM mascota WHERE id_mascota = '$id_mascota'";
+$modificar = $conecta->query($m);
+$dato = $modificar->fetch_array();
+if(isset($_POST['modificar'])){
+// recuparar los datos que se encuentran en cada uno de los imputs
+ $id_mascota = $_POST['id_mascota'];
+ $id_usuario = $conecta->real_escape_string($_POST['id_usuario']);
+ $id_tipo_mascota = $conecta->real_escape_string($_POST['id_tipo_mascota']);
+ $id_raza = $conecta->real_escape_string($_POST['id_raza']);
+ $color = $conecta->real_escape_string($_POST['color']);
+ $tamanio = $conecta->real_escape_string($_POST['tamanio']);
+ $peso = $conecta->real_escape_string($_POST['peso']);
+ $descripcion = $conecta->real_escape_string($_POST['descripcion']);
+ $fecha_ingreso = $conecta->real_escape_string($_POST['fecha_ingreso']);
+ // realizar la consulta para modificar los datos
+ if($id_usuario == "")
+ {
+    $actualiza = "UPDATE mascota SET id_usuario = null, id_tipo_mascota = '$id_tipo_mascota',  id_raza = '$id_raza', color = '$color', tamanio = '$tamanio', peso = '$peso', descripcion ='$descripcion', fecha_ingreso = '$fecha_ingreso' WHERE id_mascota = '$id_mascota'";
+ }else{
+    $actualiza = "UPDATE mascota SET id_usuario = '$id_usuario', id_tipo_mascota = '$id_tipo_mascota',  id_raza = '$id_raza', color = '$color', tamanio = '$tamanio', peso = '$peso', descripcion ='$descripcion', fecha_ingreso = '$fecha_ingreso' WHERE id_mascota = '$id_mascota'";
+} 
+ $actualizar = $conecta->query($actualiza);
+ header("location:tablaMascotas.php");
 }
  ?>
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <div id="pag">
 <!--Inicia barra navegación -->
       <?php include "cabecera.php"; ?>
@@ -142,3 +138,4 @@ if (isset($_POST['registrar'])) {
       </body>
     </html>
     </div>
+
