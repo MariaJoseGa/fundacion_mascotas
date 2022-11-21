@@ -8,7 +8,7 @@
          $where = "WHERE ApellidoP LIKE '%$valor%'";
       }
   }
-  $consulta = "SELECT * FROM Usuarios $where";
+  $consulta = "SELECT * FROM Usuario $where";
   $resultado = $conecta->query($consulta);
  ?>
 <!DOCTYPE html>
@@ -55,24 +55,30 @@
                        <br><div class="table-responsive">
                           <table class="table">
                               <thead class="text-muted">
-                                 <th>Nombre</th>
-                                 <th>Apellido Paterno</th>
-                                 <th>Apellido Materno</th>
-                                 <th>Telefono</th>
-                                 <th>Email</th>
-                                 <th>Usuario</th>
-                                 <th>Estado</th>
+                                <th class="text-center">id_usuario</th>
+                           <th class="text-center">tipo_usuario</th>
+                           <th class="text-center">nombre_usuario</th>
+                           <th class="text-center">apellido_usuario</th>
+                           <th class="text-center">telefono_usuario</th>
+                           <th class="text-center">direccion_usuario</th>
+                           <th class="text-center">cedula_usuario</th>
+                           <th class="text-center">correo_usuario</th>
+                           <th class="text-center">id_ciudad</th>
+                           <th class="text-center">id_veterinaria</th>
                               </thead>
                               <tbody>
                               <?php while($row = $resultado->fetch_assoc()){?>
                                 <tr>
-                                  <td><?php echo $row['Nombre']; ?></td>
-                                  <td><?php echo $row['ApellidoP']; ?></td>
-                                  <td><?php echo $row['ApellidoM']; ?></td>
-                                  <td><?php echo $row['Telefono']; ?></td>
-                                  <td><?php echo $row['Email']; ?></td>
-                                  <td><?php echo $row['Usuario']; ?></td>
-                                  <td><?php echo $row['Estado']; ?></td>
+                                  <td><?php echo $row['id_usuario']; ?></td>
+                            <td><?php echo $row['tipo_usuario']; ?></td>
+                            <td><?php echo $row['nombre_usuario']; ?></td>
+                            <td><?php echo $row['apellido_usuario']; ?></td>
+                            <td><?php echo $row['telefono_usuario']; ?></td>
+                            <td><?php echo $row['direccion_usuario']; ?></td>
+                             <td><?php echo $row['cedula_usuario']; ?></td>
+                              <td><?php echo $row['correo_usuario']; ?></td>
+                               <td><?php echo $row['id_ciudad']; ?></td>
+                                <td><?php echo $row['id_veterinaria']; ?></td>
                                 </tr>
                               <?php } ?>
                               </tbody>

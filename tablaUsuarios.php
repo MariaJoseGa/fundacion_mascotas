@@ -66,7 +66,7 @@ $guardar = $conecta->query($consulta);
                               <td><?php echo $row['correo_usuario']; ?></td>
                                <td><?php echo $row['id_ciudad']; ?></td>
                                 <td><?php echo $row['id_veterinaria']; ?></td>
-                            <td><a href="editarUsuarios.php?Id_Alumnos=<?php echo $row['id_usuario'];?>">Editar</a> <a href="eliminarUsuarios.php?Id_Alumnos=<?php echo $row['id_usuario'];?>">Borrar</a></td>
+                            <td><a href="editarUsuarios.php?id_usuario=<?php echo $row['id_usuario'];?>">Editar</a> <a href="eliminarUsuarios.php?Id_Alumnos=<?php echo $row['id_usuario'];?>">Borrar</a></td>
                          </tr>
                        <?php } ?>
                       </tbody>
