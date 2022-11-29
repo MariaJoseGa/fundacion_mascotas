@@ -129,10 +129,6 @@ if(isset($_POST['modificar'])){
                      <?php } ?>
                    </select>
                   </div>
-                   <input type="submit" name="modificar" class="btn btn-success btn-sm btn-block" value="Modificar">
+                   <input id="button" type="submit" name="modificar" class="btn btn-success btn-sm btn-block" value="Modificar">
               </form>
        </div>
-
-
-
-       <?php while($row = $guardarT->fetch_assoc()){ echo $row['id_tipo_mascota']; echo $row['tipo_mascota']; } ?>

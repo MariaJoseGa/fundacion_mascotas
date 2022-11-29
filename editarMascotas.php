@@ -126,7 +126,7 @@ if(isset($_POST['modificar'])){
                     <label for="staticEmail" class="text">Fecha de ingreso</label>
                    <input id="texto" type="date" name="fecha_ingreso" class="form-control" value="<?php echo $dato['fecha_ingreso']; ?>" required>
                    </div>
-                   <input type="submit" name="modificar" class="btn btn-success btn-sm btn-block" value="Modificar">
+                   <input id="button" type="submit" name="modificar" class="btn btn-success btn-sm btn-block" value="Modificar">
               </form>
            </div>
       </div>
